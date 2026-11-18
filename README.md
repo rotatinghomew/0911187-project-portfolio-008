@@ -1,17 +1,7 @@
-# 实践项目评审
+# 培养项目组合比较
 
-候选工程实践项目记录目标证据、可行条件和评审轮次。
+比较能源工程培养项目的预算可行性和多项研究目标。本地合成 JSON 记录包含项目、评审条件和项目—条件评价；`hard` 条件可设最低值，普通目标按当前评分比较。
 
-## 数据约定
+只有硬约束齐全且通过的项目会进入候选前沿。未评估的硬约束不会被当作通过，目标缺项的项目会单独列出。多个互不支配的候选都保留，不自动选出唯一赢家。当前报告仅使用最新条件与评价，尚未保存会议讨论时的规则版本和候选解释。
 
-应用使用本地合成记录，输入为 UTF-8 JSON。每条记录都应有稳定的业务标识；日期采用 ISO 8601 格式。缺失值表示未观察到，不解释为数值零。输入校验、领域整理和结果汇总彼此分离，调用方可通过 Python API 使用。
-
-## 运行与测试
-
-需要 Python 3.11 或更新版本，不依赖外部服务。执行 `python -m unittest discover -s tests -v` 运行测试。将 `src` 加入 `PYTHONPATH` 后可导入 `project_portfolio`；核心示例见 `examples/sample.json`。
-
-## 目录
-
-- `src/project_portfolio/`：记录读取、领域计算及结果汇总。
-- `examples/`：本地合成数据。
-- `tests/`：输入边界与当前业务口径测试。
+需要 Python 3.11 或更新版本，无外部服务。执行 `PYTHONPATH=src python -m unittest discover -s tests -v` 运行测试。`project_portfolio.facts` 读取评审记录，`project_portfolio.feasibility.assess` 判断硬约束，`project_portfolio.frontier.pareto_candidates` 保留多目标候选，`project_portfolio.analysis.summarize` 协调当前比较，`project_portfolio.reports.build_report` 绑定数据修订号。样例见 `examples/sample.json`。

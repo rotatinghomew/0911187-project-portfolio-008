@@ -1,20 +1,17 @@
 [
-  {
-    "id": "sample-1",
-    "period": "2026-S1",
-    "group": "A",
-    "value": 2
-  },
-  {
-    "id": "sample-2",
-    "period": "2026-S1",
-    "group": "A",
-    "value": null
-  },
-  {
-    "id": "sample-3",
-    "period": "2026-S2",
-    "group": "B",
-    "value": 4
-  }
+  {"id":"storage","kind":"project","name":"储能诊断"},
+  {"id":"dispatch","kind":"project","name":"配网调度"},
+  {"id":"materials","kind":"project","name":"材料检测"},
+  {"id":"budget","kind":"criterion","hard":true,"minimum":5},
+  {"id":"impact","kind":"criterion","hard":false},
+  {"id":"risk","kind":"criterion","hard":false},
+  {"id":"a1","kind":"assessment","project_id":"storage","criterion_id":"budget","score":6},
+  {"id":"a2","kind":"assessment","project_id":"storage","criterion_id":"impact","score":9},
+  {"id":"a3","kind":"assessment","project_id":"storage","criterion_id":"risk","score":5},
+  {"id":"a4","kind":"assessment","project_id":"dispatch","criterion_id":"budget","score":8},
+  {"id":"a5","kind":"assessment","project_id":"dispatch","criterion_id":"impact","score":8},
+  {"id":"a6","kind":"assessment","project_id":"dispatch","criterion_id":"risk","score":9},
+  {"id":"a7","kind":"assessment","project_id":"materials","criterion_id":"budget","score":7},
+  {"id":"a8","kind":"assessment","project_id":"materials","criterion_id":"impact","score":6},
+  {"id":"a9","kind":"assessment","project_id":"materials","criterion_id":"risk","score":6}
 ]
